@@ -1,0 +1,74 @@
+!<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    </head>
+
+    <body>
+        <a-scene background="color:white"></a-scene>
+        <a-camera position="0 0 0"></a-camera>
+
+        <a-assets timeout="10000">
+            <a-asset-item id="girl" src="./girl_speedsculpt/"></a-asset-item>
+            <a-asset-item id="dog" src="./models/shiba_inu_dog/"></a-asset-item>
+            <a-asset-item id="lamp" src="./models/lamp/lamp.jpg"></a-asset-item>
+            <a-asset-item id="bench" src="./models/bench/be.jpg"></a-asset-item>
+             <img id="bg" src="./images/night_bc/bc.jpg">
+        </a-assets>
+
+        <a-sky src="#bg"></a-sky>
+
+          <!--Ambient-->
+    <a-entity light="type: ambient; intensity: 0.5; ">
+    </a-entity>
+
+
+    <!--Directional-->
+   
+    <a-entity animation="property: rotation; to: 0 360 0;easing:linear; loop: true; dur: 60000"> 
+      <a-entity
+      light="type:directional;castShadow:true;intensity:1; color:yellow;distance:50;decay:2"
+      ></a-entity>
+    </a-entity>
+    
+
+<!--Girl-->
+<a-entity>
+    <a-entity position="-5 2 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#girl" shadow="cast: true;">
+    </a-entity>
+  </a-entity>
+
+<!--Dog-->
+<a-entity>
+    <a-entity position="-9 2 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#dog" shadow="cast: true;">
+    </a-entity>
+  </a-entity>
+
+<!--bench-->
+    
+<a-entity>
+    <a-entity
+    position="20 0 0"
+    rotation="0 -90 0"
+    scale="1 1 1 "
+    gltf-model="#bench"
+    shadow="cast:true;receive:false"
+    ></a-entity>
+    </a-entity>
+    
+
+    <!--lamp-->
+
+    <a-entity>
+      <a-entity
+      position="-10 0 -1"
+      rotation="0 0 0"
+      scale="0.009 0.009 0.009 "
+      gltf-model="#lamp"
+      shadow="cast:true;receive:false"
+      ></a-entity>
+      </a-entity>
+
+    </body>
+</html>
